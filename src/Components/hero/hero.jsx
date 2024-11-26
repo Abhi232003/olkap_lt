@@ -10,20 +10,43 @@ const images = [
   'url(https://ik.imagekit.io/iquid/OLKAP-Catalog/assets/bg3.jpg?updatedAt=1732295584274)'
 ];
 
+const TRANSITION_DURATION = 3000;
+
 const Hero = () => {
   const [currentImage, setCurrentImage] = useState(0);
+  const [isTransitioning, setIsTransitioning] = useState(false);
   const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
   useEffect(() => {
+    // Preload images
+    images.forEach(url => {
+      const img = new Image();
+      img.src = url.slice(4, -1);
+    });
+
     const interval = setInterval(() => {
-      setCurrentImage((prevImage) => (prevImage + 1) % images.length);
-    }, 2000);
+      setIsTransitioning(true);
+      setTimeout(() => {
+        setCurrentImage((prev) => (prev + 1) % images.length);
+        setIsTransitioning(false);
+      }, 1000);
+    }, TRANSITION_DURATION);
 
     return () => clearInterval(interval);
   }, []);
 
   return (
-    <div className="hero" style={{ backgroundImage: images[currentImage] }}>
+    <div className="hero">
+      {images.map((image, index) => (
+        <div
+          key={index}
+          className="hero-background"
+          style={{
+            backgroundImage: image,
+            opacity: index === currentImage ? 1 : 0
+          }}
+        />
+      ))}
       <div className="hero-content">
         
       </div>

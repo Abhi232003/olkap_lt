@@ -1,48 +1,52 @@
 /* src/Components/hero/hero.css */
 .hero {
     height: 100vh;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-    -webkit-transform-style: preserve-3d;
-    transform-style: preserve-3d;
-    -webkit-transform: translate3d(0,0,0);
-    transform: translate3d(0,0,0);
-    -webkit-transition: background-image 1s ease-in-out;
-    -moz-transition: background-image 1s ease-in-out;
-    -o-transition: background-image 1s ease-in-out;
-    transition: background-image 1s ease-in-out;
-    will-change: background-image;
     position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-  }
-  
-  .hero-content {
+    overflow: hidden;
+}
+
+.hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    -webkit-transform: translate3d(0,0,0);
+    transform: translate3d(0,0,0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    transition: opacity 1s ease-in-out;
+    will-change: opacity;
+}
+
+.hero-content {
     position: absolute;
     z-index: 2;
     text-align: center;
     color: white;
     
-  }
-  
-  .model-wrapper {
+}
+
+.model-wrapper {
     position: absolute;
     z-index: 5;
 
-  }
+}
 
-  .model-container {
+.model-container {
     position: relative;
     z-index: 6;
     height: 40vh;
-  }
-  
-  .hero::before {
+}
+
+.hero::before {
     content: '';
     position: absolute;
     top: 0;
@@ -51,4 +55,4 @@
     height: 100%;
     z-index: 1;
     background-color: rgba(0, 0, 0, 0.5); /* Adds semi-transparent black overlay */
-  }
+}
