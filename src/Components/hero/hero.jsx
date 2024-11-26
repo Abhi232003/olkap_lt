@@ -7,7 +7,8 @@ import './hero.css';
 
 const images = [
   'url(https://ik.imagekit.io/iquid/OLKAP-Catalog/assets/bg2.jpg?updatedAt=1732295584778)',
-  'url(https://ik.imagekit.io/iquid/OLKAP-Catalog/assets/bg3.jpg?updatedAt=1732295584274)'
+  'url(https://ik.imagekit.io/iquid/OLKAP-Catalog/assets/bg3.jpg?updatedAt=1732295584274)',
+  'url(https://ik.imagekit.io/iquid/OLKAP-Catalog/assets/bg1.jpeg?updatedAt=1732295584036)'
 ];
 
 const TRANSITION_DURATION = 3000;
