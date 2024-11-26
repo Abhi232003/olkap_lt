@@ -4,7 +4,17 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    -webkit-transform: translate3d(0,0,0);
+    transform: translate3d(0,0,0);
+    -webkit-transition: background-image 1s ease-in-out;
+    -moz-transition: background-image 1s ease-in-out;
+    -o-transition: background-image 1s ease-in-out;
     transition: background-image 1s ease-in-out;
+    will-change: background-image;
     position: relative;
     display: flex;
     flex-direction: column;
