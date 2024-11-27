@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls } from '@react-three/drei';
-import Olkap_logo from '../../../public/models/Olkap_logo';
+import Logo_model from '../../../public/models/Logo_model';
 import './hero.css';
 
 const images = [
@@ -53,19 +53,18 @@ const Hero = () => {
       </div>
       <div className="model-container">
         <Canvas camera={{ position: [0, 0, 5], fov: 50 }}>
-          <ambientLight intensity={1} />
-          <pointLight position={[10, 10, 5]} intensity={10000} />
-          <OrbitControls 
-            enableZoom={false} 
-            reverseOrbit={true}
-            reverseHorizontal={true}
-            enableDamping={true}
-            dampingFactor={0.05}
-            rotateSpeed={isMobile ? 1 : 0.3}
-            autoRotate={true}
-            autoRotateSpeed={1}
-          />
-          <Olkap_logo scale={[0.5, 0.5, 0.6]} />
+          <ambientLight intensity={4} />
+          <directionalLight position={[1, 10, 3]} intensity={15} />
+          <group rotation={[Math.PI / 12, 0, 0]}>  {/* Add tilt to the entire group */}
+            <OrbitControls 
+              enableZoom={false} 
+              enablePan={false}
+              enableRotate={true}
+              autoRotate={true}
+              autoRotateSpeed={2}
+            />
+            <Logo_model scale={[0.5, 0.5, 0.6]} />
+          </group>
         </Canvas>
       </div>
     </div>
