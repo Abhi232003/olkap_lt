@@ -36,6 +36,7 @@
   color: var(--text-color);
   display: block;
   width: 100%;
+  font-size: 1rem; /* Different from shop-now-button font size */
 }
 
 .nav-icons {
@@ -80,6 +81,7 @@
   background: white;
   transition: left var(--transition-speed) ease-in-out;
   z-index: 9999;
+  font-family: "Inter", sans-serif;
 }
 
 .mobile-menu.open {
@@ -158,7 +160,7 @@
   }
 
   .mobile-menu a {
-    font-size: 0.9rem;
+    font-size: 0.9rem; /* Different from shop-now-button font size */
   }
 
   .mobile-menu li {

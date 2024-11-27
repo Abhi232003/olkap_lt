@@ -7,6 +7,7 @@
     align-items: center;
     justify-content: center;
     overflow: hidden;
+    font-family: "Inter", sans-serif;
 }
 
 .hero-background {
@@ -50,4 +51,25 @@
     z-index: 1;
     background-color: rgba(0, 0, 0, 0.5);
     /* Adds semi-transparent black overlay */
+}
+
+.shop-now-button {
+    position: absolute;
+    bottom: 15vh;
+    z-index: 2;
+    background-color: transparent;
+    color: rgb(255, 255, 255);
+    border: none;
+    text-decoration: underline;
+    font-size: 1rem; /* Match navbar item font size */
+    font-weight: 400;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration-thickness: 0.5px;
+    text-underline-offset: 4px;
+}
+
+.shop-now-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }

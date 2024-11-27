@@ -68,6 +68,9 @@ const Hero = () => {
           </group>
         </Canvas>
       </div>
+      <button className="shop-now-button" onClick={() => window.location.href = '/shop'}>
+        Shop Now
+      </button>
     </div>
   );
 };
