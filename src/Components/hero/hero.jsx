@@ -64,7 +64,7 @@ const Hero = () => {
               autoRotate={true}
               autoRotateSpeed={isMobile ? 1.2 : 0.5}
             />
-            <Logo_model scale={[0.5, 0.5, 0.6]} />
+            <Logo_model scale={[0.8, 0.8, 0.8]} />
           </group>
         </Canvas>
       </div>
