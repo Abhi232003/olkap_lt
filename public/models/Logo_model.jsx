@@ -9,38 +9,28 @@ import { useFrame } from '@react-three/fiber'
 import * as THREE from 'three'
 
 export default function Model(props) {
-  const { nodes, materials } = useGLTF('/models/logo_model.gltf')
+  const { nodes, materials } = useGLTF('models/logo_model.gltf')
   const groupRef = useRef()
-  
-  const material = new THREE.MeshStandardMaterial({
-    color: materials['Material.001'].color,
-    metalness: 1,
-    roughness: 0.1,
-    envMapIntensity: 1
-  })
 
   useFrame((state, delta) => {
-    groupRef.current.rotation.x += delta * 0.4
-    groupRef.current.rotation.y -= delta * 0.4
+    groupRef.current.rotation.x += delta * 0.5
+    groupRef.current.rotation.y += delta * 0.5
+  })
+
+  const material = new THREE.MeshStandardMaterial({
+    metalness: 1,
+    roughness: 0.1,
+    color: '#ffffff'
   })
 
   return (
     <>
-      <Environment
-        files="/models/brown_photostudio_02_1k.hdr"
-        background={false}
-        blur={0.5}
-      />
+      <Environment files="models/brown_photostudio_02_1k.hdr" />
       <group ref={groupRef} {...props} dispose={null}>
-        <mesh 
-          geometry={nodes.Curve004.geometry} 
-          material={material} 
-          rotation={[Math.PI / 2, 0, 0]} 
-          scale={-35.102} 
-        />
+        <mesh geometry={nodes.Curve004.geometry} material={material} rotation={[Math.PI / 2, 0, 0]} scale={-35.102} />
       </group>
     </>
   )
 }
 
-useGLTF.preload('/models/logo_model.gltf')
+useGLTF.preload('models/logo_model.gltf')

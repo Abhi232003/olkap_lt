@@ -60,8 +60,9 @@ const Hero = () => {
               enableZoom={false} 
               enablePan={false}
               enableRotate={true}
+              rotateSpeed={isMobile ? 0.8 : 0.3}
               autoRotate={true}
-              autoRotateSpeed={2}
+              autoRotateSpeed={isMobile ? 1.2 : 0.5}
             />
             <Logo_model scale={[0.5, 0.5, 0.6]} />
           </group>
