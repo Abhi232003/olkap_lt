@@ -13,8 +13,8 @@ export default function Model(props) {
   const groupRef = useRef()
 
   useFrame((state, delta) => {
-    groupRef.current.rotation.x += delta * 0.5
-    groupRef.current.rotation.y += delta * 0.5
+    groupRef.current.rotation.x += delta * 0.8
+    groupRef.current.rotation.y -= delta * 0.4
   })
 
   const material = new THREE.MeshStandardMaterial({
