@@ -4,7 +4,7 @@ Command: npx gltfjsx@6.5.3 logo_model.gltf
 */
 
 import React, { useRef } from 'react'
-import { useGLTF } from '@react-three/drei'
+import { useGLTF, Environment } from '@react-three/drei'
 import { useFrame } from '@react-three/fiber'
 import * as THREE from 'three'
 
@@ -14,24 +14,32 @@ export default function Model(props) {
   
   const material = new THREE.MeshStandardMaterial({
     color: materials['Material.001'].color,
-    metalness: 0.8,
+    metalness: 1,
     roughness: 0.1,
+    envMapIntensity: 1
   })
 
   useFrame((state, delta) => {
     groupRef.current.rotation.x += delta * 0.4
-    groupRef.current.rotation.y += delta * 0.4
+    groupRef.current.rotation.y -= delta * 0.4
   })
 
   return (
-    <group ref={groupRef} {...props} dispose={null}>
-      <mesh 
-        geometry={nodes.Curve004.geometry} 
-        material={material} 
-        rotation={[Math.PI / 2, 0, 0]} 
-        scale={-35.102} 
+    <>
+      <Environment
+        files="/models/brown_photostudio_02_4k.hdr"
+        background={false}
+        blur={0.5}
       />
-    </group>
+      <group ref={groupRef} {...props} dispose={null}>
+        <mesh 
+          geometry={nodes.Curve004.geometry} 
+          material={material} 
+          rotation={[Math.PI / 2, 0, 0]} 
+          scale={-35.102} 
+        />
+      </group>
+    </>
   )
 }
 
