@@ -27,7 +27,7 @@ export default function Model(props) {
   return (
     <>
       <Environment
-        files="/models/brown_photostudio_02_4k.hdr"
+        files="/models/brown_photostudio_02_1k.hdr"
         background={false}
         blur={0.5}
       />
